@@ -1,0 +1,38 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="article-detail">
+        <div class="article">
+            <img src="{{ article.thumb.url }}" alt="">
+            <h2>{{article.title}}</h2>
+            <p>{{article.body}}</p>
+            <p>{{article.date}}</p>
+            <p class="author">added by {{ article.author.username }}</p>
+        </div>
+    </div>
+    <section class="comments-section">
+        <div class="comments-container">
+            {% for comment in comments %}
+            <div class="comments">
+                <span class="comment-title">{{ comment.title }}</span>
+                <p class="comment-body">{{ comment.body }}</p>
+                <span class="comment-info">Created by {{ comment.author }}, {{ comment.date }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="new-comment">
+            {% if newComment %}
+            <div class="alert alert-success" role="alert">
+                Your comment is awaiting moderation
+            </div>
+            {% else %}
+            <h3>Leave a comment</h3>
+            <form class="comment-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit">Submit</button>
+            </form>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
