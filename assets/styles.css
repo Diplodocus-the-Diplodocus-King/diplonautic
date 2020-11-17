@@ -1,4 +1,55 @@
+* {
+    margin-top: 0 !important;
+}
+
+
 body{
+    font-family: 'Barlow', sans-serif;
     background-color: #ff8f00;
-    color: white;
+}
+
+.nav-logo{
+    width: 55px;
+}
+
+.main-logo{
+    width: 500px;
+    margin: 70px auto 0 !important;
+}
+
+.logout-link{
+    margin: auto;
+}
+
+ .card{
+    border-radius: 15px;
+}
+
+.author{
+    border-radius: 15px;
+}
+
+h1{
+    font-weight: 900;
+    font-size: 7rem;
+    margin: 0.5rem auto;
+}
+
+h2{
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+h4{
+    font-weight: 600;
+}
+
+h3{
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+p {
+    font-weight: 700;
+    margin: 15px auto;
 }

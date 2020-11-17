@@ -4,29 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- favicon and title -->
+    <link rel="icon" href="./assets/img/diplodocus_white.ico" type="image/x-icon">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Articles</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <div class="wrapper">
-        <!-- url link -->
-        <h1><a href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}" alt=""></a></h1>
-        <nav>
-            <ul>
-                {% if user.is_authenticated %}
-                    <li>
-                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit">Logout</button>
-                        </form>
-                    </li>
-                    <li><a href="{% url 'articles:create' %}" class="highlight">Create Post</a></li>
-                {% else %}
-                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
-                    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
-                {% endif %}
-            </ul>
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper grey darken-4">
+            <div class="container">
+                <a href="{% url 'home' %}" class="brand-logo"><img src="{% static 'logo_nav.jpg' %}" alt="logo" class="responsive-img nav-logo"></a>
+                <ul class="right valign-wrapper">
+                    {% if user.is_authenticated %}
+                    <li class="nav-link"><a href="{% url 'articles:create' %}" class="highlight">Create Post</a></li>
+                        <li class="nav-link">
+                            <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="waves-effect waves-light btn light-blue darken-1">Logout</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-link"><a href="{% url 'accounts:login' %}">Login</a></li>
+                        <li class="nav-link"><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </nav>
+        <div class="container amber darken-3 center">
+            <img src="{% static 'logo.jpg' %}" alt="logo" class="main-logo">
+            <h1 class="grey-text text-lighten-5">Diplonautic</h1>
+            <p class="flow-text">The oasis of opinions where the dinosaurs of gaming gather...</p>
+        </div>
         {% block content %}
         {% endblock %}
     </div>
