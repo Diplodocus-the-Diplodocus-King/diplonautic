@@ -39,6 +39,38 @@ body{
     margin-bottom: 30px;
 }
 
+.article-image{
+    width: 100vw;
+}
+
+.creation-form{
+    margin-top: 70px !important;
+}
+
+.create-article{
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.signup-form{
+    margin-top: 70px !important;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.submit-container{
+    margin-top: 30px !important;
+}
+
+.helptext{
+    display: block;
+}
+
+.errorlist{
+    color: #b71c1c;
+    font-weight: bold;
+}
+
 h1{
     font-weight: 900;
     font-size: 7rem;
@@ -64,6 +96,8 @@ p {
     margin: 15px auto;
 }
 
+input[type]:not(.browser-default):focus:not([readonly]),
+input[type=hidden]:not(.browser-default):focus:not([readonly]),
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
@@ -72,12 +106,20 @@ textarea:focus:not([readonly]){
   border-color:white;
   box-shadow: none;
   color: white;
-  /* background-color: white; */
+  font-size: 1em;
 }
 
+input[type],
+input[type=hidden],
 input[type=text],
 input[type=email],
 input[type=password],
-textarea {
+textarea{
     color: white;
+    font-size: 1em;
+}
+
+label{
+    color: white;
+    font-size: 1em;
 }

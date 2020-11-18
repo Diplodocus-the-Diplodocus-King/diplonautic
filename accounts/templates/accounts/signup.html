@@ -1,10 +1,16 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+<div class="container center">
     <h1>Signup</h1>
-    <form class="site-form" action="/accounts/signup/" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Signup">
-    </form>
+    <div class="signup-form container light-blue darken-1 z-depth-5">
+        <form class="site-form" action="/accounts/signup/" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <div class="submit-container">
+                <button type="submit" value="Signup" class="btn grey darken-4 center">Signup</button> 
+            </div>  
+        </form>
+    </div>
+</div>
 {% endblock %}

@@ -1,13 +1,15 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-<div class="create-article">
-    <h2>Create an Awesome New Article</h2>
-    <form class="site-form" action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Create">
-    </form>
-</div>
+<section class="creation-form">
+    <div class="create-article container light-blue darken-1 z-depth-5">
+        <h2 class="center">Create an Awesome New Article!</h2>
+        <form class="site-form container" action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Create" class="btn grey darken-4">
+        </form>
+    </div>
+</section>
 <script src="/static/slugify.js"></script>
 {% endblock %}
