@@ -3,35 +3,42 @@
 {% block content %}
     <div class="article-detail">
         <div class="article">
-            <img src="{{ article.thumb.url }}" alt="">
-            <h2>{{article.title}}</h2>
-            <p>{{article.body}}</p>
-            <p>{{article.date}}</p>
-            <p class="author">added by {{ article.author.username }}</p>
+            <img src="{{ article.image.url }}" alt="" class="responsive-img">
+            <div class="container center">
+                <h1>{{article.title}}</h1>
+                <p>{{article.body}}</p>
+                <span>{{article.date}}</span>
+                <p class="light-blue-text text-darken-1 flow-text">Added by {{ article.author.username }}</p>
+            </div>
         </div>
     </div>
     <section class="comments-section">
-        <div class="comments-container">
+        <div class="comments-container container center">
+            <h3>Comments</h3>
             {% for comment in comments %}
-            <div class="comments">
-                <span class="comment-title">{{ comment.title }}</span>
-                <p class="comment-body">{{ comment.body }}</p>
-                <span class="comment-info">Created by {{ comment.author }}, {{ comment.date }}</span>
+            <div class="card comments light-blue z-depth-5">
+                <div class="card-contents">
+                    <p class="comment-title">{{ comment.title }}</p>
+                    <span class="comment-body">{{ comment.body }}</span>
+                    <p class="comment-info">Created by {{ comment.author }}, {{ comment.date }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
-        <div class="new-comment">
+        <div class="new-comment container center">
             {% if newComment %}
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success flow-text light-blue-text text-darken-1" role="alert">
                 Your comment is awaiting moderation
             </div>
             {% else %}
             <h3>Leave a comment</h3>
-            <form class="comment-form" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{form.as_p}}
-                <button type="submit">Submit</button>
-            </form>
+            <div class="form-container grey darken-4 z-depth-5">
+                <form class="comment-form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn waves-effect waves-light btn light-blue darken-1">Submit</button>
+                </form>
+            </div>
             {% endif %}
         </div>
     </section>

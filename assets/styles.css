@@ -29,6 +29,16 @@ body{
     border-radius: 15px;
 }
 
+.comments-container{
+    border-radius: 15px;
+}
+
+.form-container{
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
 h1{
     font-weight: 900;
     font-size: 7rem;
@@ -52,4 +62,22 @@ h3{
 p {
     font-weight: 700;
     margin: 15px auto;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea:focus:not([readonly]){
+  border-bottom: 2px solid white;
+  border-color:white;
+  box-shadow: none;
+  color: white;
+  /* background-color: white; */
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+    color: white;
 }
