@@ -12,4 +12,5 @@ Clone this repository down and using the command prompt navigate to the root fol
 
 python manage.py runserver
 
+(note: the application will generate a secret key for you and will be unique to your computer, any changes you make will only be stored locally)
 
