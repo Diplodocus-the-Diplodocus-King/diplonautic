@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from django.core.management.utils import get_random_secret_key
 from pathlib import Path
 import os
 import dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,11 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+def secretKeyGen():
+    dotenv_file = os.path.join(BASE_DIR, ".env")
+    if os.path.isfile(dotenv_file):
+        dotenv.load_dotenv(dotenv_file)
+        return os.environ['SECRET_KEY']   
+    else:
+        return get_random_secret_key()
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = secretKeyGen()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
